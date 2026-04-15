@@ -112,7 +112,9 @@ nav {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 15vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
