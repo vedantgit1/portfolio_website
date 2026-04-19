@@ -487,3 +487,187 @@ textarea:focus {
 ::-webkit-scrollbar-thumb:hover {
     background: #333;
 }
+
+/* =============================================
+   VALKOMA AI FLAGSHIP CARD
+   ============================================= */
+
+.valkoma-flagship {
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.35) !important;
+    background: linear-gradient(135deg,
+        rgba(59, 130, 246, 0.07) 0%,
+        rgba(139, 92, 246, 0.07) 50%,
+        rgba(5, 5, 5, 0.6) 100%) !important;
+    position: relative;
+}
+
+.valkoma-flagship::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: valkoma-border-pulse 4s ease-in-out infinite;
+}
+
+@keyframes valkoma-border-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.valkoma-flagship:hover {
+    box-shadow: 0 0 80px rgba(139, 92, 246, 0.25), 0 0 160px rgba(59, 130, 246, 0.1) !important;
+    transform: translateY(-4px) !important;
+}
+
+.valkoma-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: center;
+    min-height: 420px;
+}
+
+.valkoma-left {
+    padding: 50px 50px 50px 50px;
+}
+
+.valkoma-right {
+    padding: 30px 30px 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.valkoma-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 5px 14px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.25));
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    color: #c4b5fd;
+}
+
+.valkoma-live-dot {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #4ade80;
+}
+
+.dot-pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    position: relative;
+    animation: dot-glow 1.8s ease-in-out infinite;
+}
+
+.dot-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: rgba(74, 222, 128, 0.3);
+    animation: dot-ring 1.8s ease-in-out infinite;
+}
+
+@keyframes dot-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+    50% { box-shadow: 0 0 8px 3px rgba(74, 222, 128, 0.3); }
+}
+
+@keyframes dot-ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+.valkoma-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 540px;
+}
+
+.valkoma-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.service-pill {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 30px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.08);
+    color: #c4b5fd;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.service-pill:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: rgba(139, 92, 246, 0.6);
+    transform: translateY(-2px);
+}
+
+.valkoma-img-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 80px rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+}
+
+.valkoma-flagship:hover .valkoma-img-wrap {
+    transform: scale(1.03) rotate(-1deg);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 120px rgba(139, 92, 246, 0.25);
+}
+
+.valkoma-img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.valkoma-img-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+@media (max-width: 900px) {
+    .valkoma-inner {
+        grid-template-columns: 1fr;
+    }
+    .valkoma-left {
+        padding: 40px 30px 20px;
+    }
+    .valkoma-right {
+        padding: 0 30px 40px;
+    }
+}
