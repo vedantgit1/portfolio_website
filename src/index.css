@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #131210;
+  --color-surface: #1e1b19;
+  --color-surface-hover: #2a2522;
+  --color-primary: #eeebe5;
+  --color-secondary: #aba399;
+  --color-accent: #da7756; /* Claude-like orange accent */
+  
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-hover);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+.glass-pill {
+  background: rgba(30, 27, 25, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(242, 239, 233, 0.08);
+}
+
+.subtle-border {
+  border: 1px solid rgba(242, 239, 233, 0.08);
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, #eeebe5 0%, rgba(238, 235, 229, 0.5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ai-gradient {
+  background: linear-gradient(135deg, #e59a7f 0%, #da7756 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background grid for Hero */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(218, 119, 86, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(218, 119, 86, 0.03) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
