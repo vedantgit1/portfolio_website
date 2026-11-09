@@ -17,12 +17,12 @@ export function Navigation() {
         
         <div className="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-widest text-secondary">
           <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
-          <a href="#thinking" className="hover:text-primary transition-colors">Policy Briefs</a>
+          <a href="#thinking" className="hover:text-primary transition-colors">Research</a>
           <a href="#about" className="hover:text-primary transition-colors">About</a>
         </div>
         
         <div className="flex items-center gap-4">
-          <a href="mailto:vedant.a.joshi@gmail.com" className="text-secondary hover:text-primary transition-colors">
+          <a href="mailto:verdant.a.joshi@gmail.com" className="text-secondary hover:text-primary transition-colors">
             <Mail className="w-4 h-4" />
           </a>
           <a href="#contact" className="bg-primary text-background px-4 py-1.5 rounded-full text-xs font-medium hover:bg-white/90 transition-colors flex items-center gap-2">

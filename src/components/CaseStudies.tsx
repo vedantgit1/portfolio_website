@@ -3,6 +3,21 @@ import { BookOpen, AlertCircle, Lightbulb, GitMerge } from 'lucide-react';
 
 const studies = [
   {
+    title: "2014 Lok Sabha Election Analysis",
+    type: "ELECTORAL DATA ANALYSIS",
+    problem: "Every Lok Sabha seat has a crowded field, but only one candidate wins. Campaigns often pick candidates on instinct rather than on what the data says separates winners from the rest.",
+    hypothesis: "Winners share measurable traits that can be read from public ECI data, which gives campaigns a sharper basis for candidate and seat decisions than instinct alone.",
+    strategy: "Built a dataset of all 8,794 candidates across 543 seats from Election Commission of India data and compared winners against the rest of the field. My Python model calls the result correctly about 65% of the time.",
+  },
+  {
+    title: "Women's & Adolescent Health for Viksit Bharat 2047",
+    type: "PUBLIC HEALTH WHITE PAPER · CO-WRITING",
+    problem: "NFHS data from 700+ districts shows hospital births and antenatal check-ups have risen sharply, yet anaemia and child malnutrition have barely moved. Access has improved faster than outcomes.",
+    hypothesis: "Counting visits and institutional deliveries is not enough. Policy needs to target nutrition and follow-up care, and track outcome indicators at district level, if 2047 health goals are to be met.",
+    strategy: "District-level analysis of NFHS indicators to find where coverage gains did not translate into health gains. Alongside the paper: Malnutrition and Education Retention frameworks scoped for 2.5 lakh households and 50 schools, built on Poshan Tracker data.",
+    tradeoffs: "Coverage targets are easy to report; outcome targets are harder to move and slower to show. The paper argues for measuring what actually changes lives.",
+  },
+  {
     title: "Ayushman Bharat Digital Mission (ABDM)",
     type: "HEALTHCARE POLICY BRIEF",
     problem: "India's healthcare system remains highly fragmented, leading to inefficiencies, redundant tests, and poor continuity of care for over 1.4 billion citizens.",
@@ -28,10 +43,10 @@ export function CaseStudies() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <h2 className="text-sm font-mono text-secondary uppercase tracking-widest mb-4">Strategic Analysis</h2>
-            <h3 className="text-4xl md:text-5xl font-semibold tracking-tight">Policy Briefs</h3>
+            <h3 className="text-4xl md:text-5xl font-semibold tracking-tight">Research & Policy Briefs</h3>
           </div>
           <p className="text-secondary max-w-md font-light">
-            How I dissect complex socio-economic challenges, evaluate legislative frameworks, and draft actionable policy recommendations.
+            Electoral data analysis, public health research and policy briefs: how I read the numbers, test a thesis and turn it into a recommendation.
           </p>
         </div>
 

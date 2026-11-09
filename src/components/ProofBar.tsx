@@ -1,10 +1,10 @@
 import { motion } from 'motion/react';
 
 const stats = [
-  { label: 'AI Tools Launched', value: '4' },
-  { label: 'Active Users Impacted', value: '1.2M+' },
-  { label: 'LLM Architectures', value: 'GPT-4, Claude 3, Llama' },
-  { label: 'Product Focus', value: 'B2B SaaS & Growth' },
+  { label: 'Assembly Seats Mapped', value: '117 (Punjab)' },
+  { label: 'Lok Sabha Candidates Modelled', value: '8,794' },
+  { label: 'NFHS Districts Analysed', value: '700+' },
+  { label: 'Political & Policy Tools Live', value: '5' },
 ];
 
 export function ProofBar() {

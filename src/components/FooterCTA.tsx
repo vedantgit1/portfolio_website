@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight, Github, Linkedin } from 'lucide-react';
 
 export function FooterCTA() {
   return (
@@ -20,14 +20,14 @@ export function FooterCTA() {
           
           <div className="text-secondary text-base mb-12 max-w-2xl mx-auto font-light space-y-4">
             <p>
-              Most AI PMs talk strategy. I've shipped products — six of them, across six domains, with real users and real constraints.
+              I build constituency tools on real data: all 117 Punjab Assembly seats, 8,794 Lok Sabha candidates, a working prototype for a municipal council office, and a white paper drawn from 700+ districts of NFHS data.
             </p>
             <p>
-              I bring an engineer's precision, a builder's hands, and a strategist's mind. I'm not chasing the AI wave. <strong className="text-primary font-medium">I'm building the infrastructure underneath it.</strong>
+              Open to political consulting, campaign research and policy roles in Mumbai, Pune, Bengaluru and Hyderabad. Hindi, Marathi, English. <strong className="text-primary font-medium">If your team needs someone who can read the numbers and ship the tool, let's talk.</strong>
             </p>
           </div>
 
-          <a href="mailto:vedant.a.joshi@gmail.com" className="inline-flex items-center justify-center gap-2 px-8 py-5 bg-primary text-background rounded-full font-medium hover:scale-105 transition-transform duration-300 shadow-xl shadow-white/10">
+          <a href="mailto:verdant.a.joshi@gmail.com" className="inline-flex items-center justify-center gap-2 px-8 py-5 bg-primary text-background rounded-full font-medium hover:scale-105 transition-transform duration-300 shadow-xl shadow-white/10">
             Let's Talk <ArrowRight className="w-5 h-5" />
           </a>
         </motion.div>
@@ -36,8 +36,7 @@ export function FooterCTA() {
           <p>© {new Date().getFullYear()} Vedant Joshi. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="https://www.linkedin.com/in/vedant-joshi-a7b276187/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><Linkedin className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Twitter className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-primary transition-colors"><Github className="w-4 h-4" /></a>
+            <a href="https://github.com/vedantgit1" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><Github className="w-4 h-4" /></a>
           </div>
         </div>
       </div>
