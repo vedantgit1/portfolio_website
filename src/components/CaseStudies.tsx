@@ -1,5 +1,7 @@
 import { motion } from 'motion/react';
-import { BookOpen, AlertCircle, Lightbulb, GitMerge } from 'lucide-react';
+import { BookOpen, AlertCircle, Lightbulb, GitMerge, FolderOpen } from 'lucide-react';
+
+const DRIVE_FOLDER = "https://drive.google.com/drive/folders/1c8BmrOZZBkV8kUm_W_hZJ48-gBhIl4b_?usp=drive_link";
 
 const studies = [
   {
@@ -10,12 +12,31 @@ const studies = [
     strategy: "Built a dataset of all 8,794 candidates across 543 seats from Election Commission of India data and compared winners against the rest of the field. My Python model calls the result correctly about 65% of the time.",
   },
   {
+    title: "SWOT Analysis of BJP in Southern States",
+    type: "POLITICAL STRATEGY · REBOUNCE PROGRAM",
+    problem: "BJP has a strong national brand and a growing base in Karnataka and Telangana, but struggles across Tamil Nadu, Kerala and Andhra Pradesh, where strong regional parties, language and cultural identity, and a 'North Indian party' image limit its reach.",
+    hypothesis: "Long-term success in the South depends less on national visibility and more on cultural legitimacy, grassroots integration and strong local leadership.",
+    strategy: "A full SWOT across Tamil Nadu, Karnataka, Kerala, Andhra Pradesh, Telangana and Puducherry: cadre base, urban vote and welfare schemes as strengths; over-centralised leadership and language barriers as weaknesses; fragmented regional politics, alliances and aspirational urban voters as openings; strong regional parties and cultural backlash as threats.",
+    linkText: "→ View SWOT (Google Drive)",
+    linkUrl: DRIVE_FOLDER,
+  },
+  {
     title: "Women's & Adolescent Health for Viksit Bharat 2047",
     type: "PUBLIC HEALTH WHITE PAPER · CO-WRITING",
     problem: "NFHS data from 700+ districts shows hospital births and antenatal check-ups have risen sharply, yet anaemia and child malnutrition have barely moved. Access has improved faster than outcomes.",
     hypothesis: "Counting visits and institutional deliveries is not enough. Policy needs to target nutrition and follow-up care, and track outcome indicators at district level, if 2047 health goals are to be met.",
-    strategy: "District-level analysis of NFHS indicators to find where coverage gains did not translate into health gains. Alongside the paper: Malnutrition and Education Retention frameworks scoped for 2.5 lakh households and 50 schools, built on Poshan Tracker data.",
+    strategy: "District-level analysis of NFHS indicators to find where coverage gains did not translate into health gains, and what that means for nutrition and follow-up care policy.",
     tradeoffs: "Coverage targets are easy to report; outcome targets are harder to move and slower to show. The paper argues for measuring what actually changes lives.",
+  },
+  {
+    title: "Evaluation of Malnutrition Interventions: PDS Logistics & Poshan Tracker",
+    type: "PROGRAMME EVALUATION · MAHARASHTRA",
+    problem: "Chronic malnutrition in rural Tier-3 districts is as much a supply-chain failure as a funding gap: fragmented last-mile distribution, local stock-outs and delayed help for the most vulnerable families.",
+    hypothesis: "Treating welfare delivery as a fast, data-driven supply chain, rather than a passive handover, closes the gap between policy intent and what reaches the household, without building new infrastructure.",
+    strategy: "A targeted intervention for 2.5 lakh vulnerable households and 50 schools: turn 25 existing PDS shops into high-turnover centres for bio-fortified grains, reconcile stock digitally through the Poshan Tracker, and tie distribution to health screenings. Target: 5.5 lakh hot cooked meals verifiably delivered over 12 months.",
+    tradeoffs: "Repurposing existing PDS shops is faster and cheaper than new infrastructure, but depends on strict data discipline at shop level to work.",
+    linkText: "→ Read the Evaluation (Google Drive)",
+    linkUrl: DRIVE_FOLDER,
   },
   {
     title: "Ayushman Bharat Digital Mission (ABDM)",
@@ -45,9 +66,14 @@ export function CaseStudies() {
             <h2 className="text-sm font-mono text-secondary uppercase tracking-widest mb-4">Strategic Analysis</h2>
             <h3 className="text-4xl md:text-5xl font-semibold tracking-tight">Research & Policy Briefs</h3>
           </div>
-          <p className="text-secondary max-w-md font-light">
-            Electoral data analysis, public health research and policy briefs: how I read the numbers, test a thesis and turn it into a recommendation.
-          </p>
+          <div className="max-w-md flex flex-col items-start gap-4">
+            <p className="text-secondary font-light">
+              Electoral data analysis, public health research and policy briefs: how I read the numbers, test a thesis and turn it into a recommendation.
+            </p>
+            <a href={DRIVE_FOLDER} target="_blank" rel="noopener noreferrer" className="glass-pill inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-surface-hover transition-colors">
+              <FolderOpen className="w-4 h-4 text-accent" /> Open all documents (SWOT, ToC, logframe, evaluations)
+            </a>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
