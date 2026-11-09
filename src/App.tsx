@@ -10,7 +10,7 @@ import { FeaturedProjects } from './components/FeaturedProjects';
 import { CaseStudies } from './components/CaseStudies';
 import { SkillsBento } from './components/SkillsBento';
 import { AboutStory } from './components/AboutStory';
-import { LiveDemo } from './components/LiveDemo';
+import { HowIWork } from './components/HowIWork';
 import { FooterCTA } from './components/FooterCTA';
 
 export default function App() {
@@ -22,9 +22,9 @@ export default function App() {
         <Hero />
         <ProofBar />
         <FeaturedProjects />
+        <HowIWork />
         <CaseStudies />
         <SkillsBento />
-        <LiveDemo />
         <AboutStory />
       </main>
 

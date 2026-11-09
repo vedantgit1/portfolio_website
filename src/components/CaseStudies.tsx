@@ -1,9 +1,21 @@
 import { motion } from 'motion/react';
-import { BookOpen, AlertCircle, Lightbulb, GitMerge, FolderOpen } from 'lucide-react';
+import { BookOpen, AlertCircle, Lightbulb, GitMerge, FolderOpen, FileText, ArrowUpRight } from 'lucide-react';
 
 const DRIVE_FOLDER = "https://drive.google.com/drive/folders/1c8BmrOZZBkV8kUm_W_hZJ48-gBhIl4b_?usp=drive_link";
+const driveFile = (id: string) => `https://drive.google.com/file/d/${id}/view`;
 
-const studies = [
+type Study = {
+  title: string;
+  type: string;
+  problem: string;
+  hypothesis: string;
+  strategy: string;
+  tradeoffs?: string;
+  linkText?: string;
+  linkUrl?: string;
+};
+
+const studies: Study[] = [
   {
     title: "2014 Lok Sabha Election Analysis",
     type: "ELECTORAL DATA ANALYSIS",
@@ -13,12 +25,12 @@ const studies = [
   },
   {
     title: "SWOT Analysis of BJP in Southern States",
-    type: "POLITICAL STRATEGY · REBOUNCE PROGRAM",
+    type: "POLITICAL STRATEGY",
     problem: "BJP has a strong national brand and a growing base in Karnataka and Telangana, but struggles across Tamil Nadu, Kerala and Andhra Pradesh, where strong regional parties, language and cultural identity, and a 'North Indian party' image limit its reach.",
     hypothesis: "Long-term success in the South depends less on national visibility and more on cultural legitimacy, grassroots integration and strong local leadership.",
     strategy: "A full SWOT across Tamil Nadu, Karnataka, Kerala, Andhra Pradesh, Telangana and Puducherry: cadre base, urban vote and welfare schemes as strengths; over-centralised leadership and language barriers as weaknesses; fragmented regional politics, alliances and aspirational urban voters as openings; strong regional parties and cultural backlash as threats.",
-    linkText: "→ View SWOT (Google Drive)",
-    linkUrl: DRIVE_FOLDER,
+    linkText: "Read the SWOT (PDF)",
+    linkUrl: driveFile("1-mprf-MRY54E7bxx3NPGxZ9rg9fFebVE"),
   },
   {
     title: "Women's & Adolescent Health for Viksit Bharat 2047",
@@ -35,8 +47,8 @@ const studies = [
     hypothesis: "Treating welfare delivery as a fast, data-driven supply chain, rather than a passive handover, closes the gap between policy intent and what reaches the household, without building new infrastructure.",
     strategy: "A targeted intervention for 2.5 lakh vulnerable households and 50 schools: turn 25 existing PDS shops into high-turnover centres for bio-fortified grains, reconcile stock digitally through the Poshan Tracker, and tie distribution to health screenings. Target: 5.5 lakh hot cooked meals verifiably delivered over 12 months.",
     tradeoffs: "Repurposing existing PDS shops is faster and cheaper than new infrastructure, but depends on strict data discipline at shop level to work.",
-    linkText: "→ Read the Evaluation (Google Drive)",
-    linkUrl: DRIVE_FOLDER,
+    linkText: "Read the evaluation",
+    linkUrl: driveFile("1afcJXDvgxJlTSe9f9h2F0v3wmTpfa-SS"),
   },
   {
     title: "Ayushman Bharat Digital Mission (ABDM)",
@@ -44,8 +56,6 @@ const studies = [
     problem: "India's healthcare system remains highly fragmented, leading to inefficiencies, redundant tests, and poor continuity of care for over 1.4 billion citizens.",
     hypothesis: "A unified digital health infrastructure (ABHA IDs, PHR apps, and Health Facility Registries) will streamline patient data access, reduce out-of-pocket expenses, and enable interoperability across public and private healthcare providers.",
     strategy: "This brief evaluates the strategic implementation of ABDM, analyzing its components (ABHA, HPR, HFR), the underlying architecture (UHI), and the critical balance between data accessibility and patient privacy under the DPDP Act.",
-    linkText: "→ Read Full Policy Brief",
-    linkUrl: "https://docs.google.com/document/d/1afcJXDvgxJlTSe9f9h2F0v3wmTpfa-SS/edit?usp=sharing&ouid=103801233458286648995&rtpof=true&sd=truei"
   },
   {
     title: "AI Regulation & Innovation Act",
@@ -56,6 +66,25 @@ const studies = [
     tradeoffs: "Innovation velocity vs. Regulatory friction. Balancing the need to attract AI capital against the necessity of citizen data protection.",
   }
 ];
+
+const documents = [
+  { name: "SWOT Analysis of BJP in Southern States", kind: "PDF", note: "Five southern states and Puducherry", url: driveFile("1-mprf-MRY54E7bxx3NPGxZ9rg9fFebVE") },
+  { name: "Evaluation of Malnutrition Interventions", kind: "DOC", note: "PDS logistics and Poshan Tracker, Maharashtra", url: driveFile("1afcJXDvgxJlTSe9f9h2F0v3wmTpfa-SS") },
+  { name: "Theory of Change: Climate-Resilient Farm Incomes", kind: "PDF", note: "Inputs to impact for smallholder farmers", url: driveFile("19FzxTq5EqCAWbMa-3OzCYMZ4p-Ky4zjF") },
+  { name: "Theory of Change: Group Activity", kind: "PDF", note: "Rebounce program, Group 7", url: driveFile("1d7g15InlZ6xvYPuta_LrB2tY1RpZVgTn") },
+  { name: "Logframe: Education Programme", kind: "PPT", note: "Rebounce program, Group 4", url: driveFile("1Z156nTpS4xgXTtzC7cuxEaevYsbLku1f") },
+];
+
+function Field({ icon: Icon, label, children, muted }: { icon: typeof BookOpen; label: string; children: string; muted?: boolean }) {
+  return (
+    <div>
+      <div className="flex items-center gap-2 mb-2 text-sm text-secondary uppercase tracking-wider font-mono">
+        <Icon className="w-4 h-4" /> {label}
+      </div>
+      <p className={`text-sm leading-relaxed ${muted ? 'italic text-secondary' : ''}`}>{children}</p>
+    </div>
+  );
+}
 
 export function CaseStudies() {
   return (
@@ -68,69 +97,74 @@ export function CaseStudies() {
           </div>
           <div className="max-w-md flex flex-col items-start gap-4">
             <p className="text-secondary font-light">
-              Electoral data analysis, public health research and policy briefs: how I read the numbers, test a thesis and turn it into a recommendation.
+              Electoral data analysis, party strategy, public health research and policy briefs: how I read the numbers, test a thesis and turn it into a recommendation.
             </p>
-            <a href={DRIVE_FOLDER} target="_blank" rel="noopener noreferrer" className="glass-pill inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-surface-hover transition-colors">
-              <FolderOpen className="w-4 h-4 text-accent" /> Open all documents (SWOT, ToC, logframe, evaluations)
+            <a href="#documents" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-white transition-colors">
+              <FolderOpen className="w-4 h-4" /> Jump to the document library
             </a>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {studies.map((study, idx) => (
-            <motion.div 
+            <motion.article
               key={study.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              transition={{ duration: 0.6, delay: (idx % 2) * 0.15 }}
               className="glass-pill p-8 rounded-3xl flex flex-col h-full"
             >
-              <div className="text-accent text-xs font-mono uppercase tracking-widest mb-4">
-                {study.type}
-              </div>
+              <div className="text-accent text-xs font-mono uppercase tracking-widest mb-4">{study.type}</div>
               <h4 className="text-2xl font-semibold mb-8">{study.title}</h4>
-              
+
               <div className="space-y-6 flex-grow">
-                <div>
-                  <div className="flex items-center gap-2 mb-2 text-sm text-secondary uppercase tracking-wider font-mono">
-                    <AlertCircle className="w-4 h-4" /> Context & Challenge
-                  </div>
-                  <p className="text-sm leading-relaxed">{study.problem}</p>
-                </div>
-                
-                <div>
-                  <div className="flex items-center gap-2 mb-2 text-sm text-secondary uppercase tracking-wider font-mono">
-                    <Lightbulb className="w-4 h-4" /> Core Thesis
-                  </div>
-                  <p className="text-sm leading-relaxed">{study.hypothesis}</p>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2 mb-2 text-sm text-secondary uppercase tracking-wider font-mono">
-                    <BookOpen className="w-4 h-4" /> Policy Analysis
-                  </div>
-                  <p className="text-sm leading-relaxed text-primary/90">{study.strategy}</p>
-                </div>
-
-                <div className="pt-6 border-t border-white/10 mt-6 flex flex-col items-start">
-                  {study.tradeoffs && (
-                    <div className="mb-4">
-                      <div className="flex items-center gap-2 mb-2 text-sm text-secondary uppercase tracking-wider font-mono">
-                        <GitMerge className="w-4 h-4" /> Policy Trade-offs
-                      </div>
-                      <p className="text-sm italic text-secondary">{study.tradeoffs}</p>
-                    </div>
-                  )}
-                  {study.linkUrl && (
-                    <a href={study.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-white transition-colors mt-auto">
-                      {study.linkText || 'Read Policy Brief'}
-                    </a>
-                  )}
-                </div>
+                <Field icon={AlertCircle} label="Context & Challenge">{study.problem}</Field>
+                <Field icon={Lightbulb} label="Core Thesis">{study.hypothesis}</Field>
+                <Field icon={BookOpen} label="Approach">{study.strategy}</Field>
+                {study.tradeoffs && <Field icon={GitMerge} label="Trade-offs" muted>{study.tradeoffs}</Field>}
               </div>
-            </motion.div>
+
+              {study.linkUrl && (
+                <div className="pt-6 mt-6 border-t border-white/10">
+                  <a href={study.linkUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-white transition-colors">
+                    {study.linkText} <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </div>
+              )}
+            </motion.article>
           ))}
+        </div>
+
+        <div id="documents" className="mt-20 scroll-mt-32">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <div>
+              <h3 className="text-2xl font-semibold">Document library</h3>
+              <p className="text-secondary text-sm mt-2 font-light">Original files on Google Drive, including Theory of Change and logframe work from the Rebounce Public Policy & Political Consulting Program.</p>
+            </div>
+            <a href={DRIVE_FOLDER} target="_blank" rel="noopener noreferrer" className="glass-pill inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium hover:bg-surface-hover transition-colors shrink-0">
+              <FolderOpen className="w-4 h-4 text-accent" /> Open full folder
+            </a>
+          </div>
+          <div className="glass-pill rounded-3xl divide-y divide-white/5 overflow-hidden">
+            {documents.map(doc => (
+              <a
+                key={doc.name}
+                href={doc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 px-6 py-5 hover:bg-surface-hover/50 transition-colors"
+              >
+                <FileText className="w-5 h-5 text-secondary group-hover:text-accent transition-colors shrink-0" />
+                <div className="flex-grow min-w-0">
+                  <div className="font-medium truncate">{doc.name}</div>
+                  <div className="text-xs text-secondary mt-0.5">{doc.note}</div>
+                </div>
+                <span className="text-[10px] font-mono text-secondary border border-white/10 rounded px-2 py-0.5 shrink-0">{doc.kind}</span>
+                <ArrowUpRight className="w-4 h-4 text-secondary group-hover:text-accent transition-colors shrink-0" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
